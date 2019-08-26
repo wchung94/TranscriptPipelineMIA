@@ -1,22 +1,0 @@
-hisat2 --dta -x indexfile -1 fastqfile1 -2 fastqfile2 -S output_dta.sam
-hisat2 --dta-cufflinks -x indexfile -1 fastqfile1 -2 fastqfile2 -S output_dta_cufflinks.sam
-
-samtools view -bS output_dta.sam > unsorted.bam
-samtools sort unsorted.bam sorted
-samtools view -bS output_dta_cufflinks.sam > unsorted_cufflinks.sam
-samtools sort unsorted_cufflinks.bam sorted_cufflinks
-
-stringtie -G reference.gtf -o outputfile.gtf -l label sorted.bam
-gffcompare -r reference.gtf -G -o merged stringtie_merged.gtf
-
-cuffdiff -o cuffdiff_output_directory -b multifasta_that_mapped_reads.fa -p number of threads -L label1,label2,label3,label4 -u stringtie_merged.gtf \
-sorted_cufflinks_sample_1_1.bam,sorted_cufflinks_sample_1_2.bam,sorted_cufflinks_sample_1_3.bam \
-sorted_cufflinks_sample_2_1.bam,sorted_cufflinks_sample_2_2.bam,sorted_cufflinks_sample_2_3.bam \
-sorted_cufflinks_sampl_e3_1.bam,sorted_cufflinks_sample_3_2.bam,sorted_cufflinks_sample_3_3.bam \
-
-
-
-SOURCE:https://www.biostars.org/p/222849/
-
-runt nu:
-cuffdiff -o cuffdiff_out_directory_no_fa -u -no-update-check GSE... GSM..C1_R1...,GSM..C1_R2... GSM..C2_R1...,GSM..C2_R2...
