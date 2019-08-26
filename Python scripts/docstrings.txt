@@ -1,0 +1,112 @@
+Nijveen group
+Authors: Vera Claasen, Wing Yu Chung, Lukas van den Heuvel, Erik ijland, 
+Nathalie de Vries
+Student numbers: 970825157120, 940201157090, 951218334040, 960504980110, 
+920107916130
+Usage: n.a.
+Description: Work flow for command-line tools of ..
+Version: 1.0 December 2018
+
+infile_check(filename):
+""" Checks if the input file exists, if not returns an error exit()
+
+	Kewords:
+	filename: string, filename of input file
+
+	Lukas van den Heuvel
+"""
+
+outfile_check(filename):
+""" Checks if the output file exists, if not runs the program
+
+	Keywords:
+	filename: string, filename of input file
+
+	Lukas van den Heuvel
+"""
+
+call_error(codeblock,message):
+""" Returns location of an error and error message
+
+	Keywords:
+	codeblock: string, block of code were error occurs
+	message: string, text message of an error
+
+	Lukas van de Heuvel
+""" 
+
+select_input_files(directory, labelfile):
+""" Let's the user select and label datasets out of given directory 
+	(manualy or automatted with labelfile) 
+
+	Keywords:
+	directory: string, name of input directory
+	labelfile: string, name of text file with dataset name and nicknames
+	Retuns: 
+	label_dict: dictionary of {label: dataset name, nickname}
+
+	Lukas van den Heuvel
+"""
+
+yes_no(inputstring):
+""" Checks if user input is y/n, if not returns error message
+
+	Keywords:
+	inputstring: string, user input (y/n)
+
+	Lukas van den Heuvel
+"""
+
+print_dictionary(mydict):
+""" Prints each key and value(s) of dictionary on tab delimeted line
+
+	Keywords:
+	mydict: dictionary of {key: value(s)}
+
+	Lukas van den Heuvel
+"""
+
+set_arguments():
+""" Set arguments for command line of main script
+
+	Lukas van den Heuvel
+"""
+
+fastq_split(label):
+""" Splits off forward strand (90 bp) of paired FASTQ sequence (180 bp) 
+
+	Keywords: 
+	label: string, filename of paired FASTQ sequence
+	Returns:
+	label_1: string, filename of forward FASTQ sequence
+
+	Lukas van den Heuvel
+"""
+
+check_presence(label_dictionary, extension):
+""" Checks if the input file exists, if not returns an error exit()
+
+	Keywords:
+	label_dictionary: dictionary of {label: dataset name, nickname}
+	extension: string, part added to label which completes filename 
+
+	Lukas van de Heuvel
+"""
+
+run_hisat2(index_file, label_dictionary, fastqdir):
+""" Runs HISAT2 program on FASTQ sequence file
+
+	Keywords:
+	index_file: string, filename of index file of the used organism 
+	label_dictionary: dictionary of {label: dataset name, nickname}
+	fastqdir: directory, 
+	Returns: 
+	??
+
+	Nathalie de Vries, Vera Claasen, Lukas van den Heuvel
+"""
+
+
+To do:
+labelfile as parameter
+label_dictionary change to label_dict? both used but the same? 
